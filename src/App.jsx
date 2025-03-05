@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import PostCard from './components/postcard';
 import './App.css'
 
 function App() {
@@ -30,10 +31,15 @@ function App() {
   ];
 
   return (
-    <>
-      
-    </>
-  )
+    <div className="min-h-screen bg-black flex flex-col items-center py-10">
+      <h1 className="text-3xl font-bold mb-6 text-white">Social Media Feed</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {initialPosts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default App
